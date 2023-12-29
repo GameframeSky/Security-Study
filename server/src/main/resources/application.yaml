@@ -1,0 +1,15 @@
+server:
+  port: 9090
+  address: localhost
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost/security-study?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: root
+  jackson:
+    date-format: yyyy-mm-dd
+  servlet:
+    multipart:
+      max-file-size: 400MB
+      max-request-size: 10MB

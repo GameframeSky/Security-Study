@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.server.mapper.UserMapper">
+    <resultMap id="userMap" type="com.example.server.entity.Account">
+        <result property="id" column="id"/>
+        <result property="username" column="username"/>
+        <result property="nickname" column="nickname"/>
+        <result property="password" column="password"/>
+        <result property="address" column="address"/>
+        <result property="phone" column="phone"/>
+        <result property="email" column="email"/>
+    </resultMap>
+    <select id="selectList" resultMap="userMap">
+        select *
+        from account
+    </select>
+    <select id="selectByUsername" resultMap="userMap">
+        select *
+        from account
+        where username = #{username} or email = #{email}
+    </select>
+    <insert id="insert">
+        insert into account(id, username, nickname, address, email, phone)
+        values (#{account.id}, #{account.username}, #{account.nickname}, #{account.address}, #{account.email}, #{account.phone});
+    </insert>
+    <delete id="deleteById">
+        delete from account where id = #{id}
+    </delete>
+</mapper>
