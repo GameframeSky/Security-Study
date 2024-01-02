@@ -14,18 +14,26 @@
     </resultMap>
     <select id="selectList" resultMap="userMap">
         select *
-        from account
+        from user
     </select>
     <select id="selectByUsername" resultMap="userMap">
         select *
-        from account
-        where username = #{username} or email = #{email}
+        from user
+        where username = #{username}
+    </select>
+    <select id="selectByEmail" resultType="com.example.server.entity.Account">
+        select *
+        from user
+        where email = #{email}
     </select>
     <insert id="insert">
-        insert into account(id, username, nickname, address, email, phone)
-        values (#{account.id}, #{account.username}, #{account.nickname}, #{account.address}, #{account.email}, #{account.phone});
+        insert into user(id, username, nickname, address, email, phone)
+        values (#{user.id}, #{user.username}, #{user.nickname}, #{user.address}, #{user.email}, #{user.phone});
     </insert>
+    <update id="resetPasswordByEmail">
+        update user set password = #{password} where email = #{email}
+    </update>
     <delete id="deleteById">
-        delete from account where id = #{id}
+        delete from user where id = #{id}
     </delete>
 </mapper>

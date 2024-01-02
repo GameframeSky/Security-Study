@@ -6,16 +6,18 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * The type User.
  *
- * @author 杨欢
+ * @author army
  * @Date 2022 /1/26
  */
 
 @Data
 @TableName("user")
-public class Account {
+public class Account implements Serializable {
     /**
      * ID
      */

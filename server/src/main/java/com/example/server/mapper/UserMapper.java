@@ -26,6 +26,10 @@ public interface UserMapper extends BaseMapper<Account> {
 
     List<Account> selectByUsername(@Param("username") String username);
 
+    List<Account> selectByEmail(@Param("email") String email);
+
+    int resetPasswordByEmail(@Param("password")String password , @Param("email")String email);
+
     /**
      * 插入一条数据
      *

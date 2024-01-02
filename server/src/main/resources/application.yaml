@@ -13,3 +13,21 @@ spring:
     multipart:
       max-file-size: 400MB
       max-request-size: 10MB
+  mail:
+    host: smtp.163.com
+    username: javastudy111@163.com
+    password: ADNMGCTHSQGDJLUE
+    port: 465
+    properties:
+      from: javastudy111@163.com
+      mail:
+        smtp:
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 6379
+mybatis-plus:
+  mapper-locations: classpath:mapping/*
